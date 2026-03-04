@@ -174,27 +174,111 @@ Agent: I can help you reschedule. What's the email address you used for booking?
 
 ## Architecture
 
-Built with modern Python tools:
-- **LangGraph**: State machine for conversation flow
-- **LangChain**: LLM integration and tool calling
-- **httpx**: Async HTTP client for Calendly API
-- **uv**: Fast Python package manager
-- **Docker**: Containerized deployment
+LangGraph: State machine for conversation flow
 
-## Docker Deployment
+LangChain: LLM integration and tool calling
 
-```bash
-# Build image
+Calendly API: Real appointment scheduling
+
+Multi-Provider LLM: Flexible model selection
+
+Docker: Containerized deployment
+
+![Python](https://img.shields.io/badge/python-v3.11+-blue.svg)
+![LangGraph](https://img.shields.io/badge/LangGraph-latest-green.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+## ✨ Features
+
+- 🤖 **Natural Language Booking** - Book appointments through conversation
+- 📅 **Real-time Availability** - Live Calendly API integration
+- 🔄 **Complete Workflow** - Book, reschedule, cancel appointments
+- ❓ **FAQ System** - Answers questions about services and pricing
+- 🔧 **Multi-LLM Support** - OpenAI, Anthropic, Groq, Google Gemini, AWS Bedrock
+- 🐳 **Docker Ready** - Containerized deployment
+- ✅ **Production Ready** - Error handling, validation, monitoring
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.11+
+- [uv](https://github.com/astral-sh/uv) package manager
+- OpenAI API key (recommended) or other LLM provider
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/acme-dental-ai-agent.git
+   cd acme-dental-ai-agent
+
+
+   # Install uv (if needed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install project dependencies
+uv sync
+
+**Configure environment**
+cp .env.example .env
+# Edit .env and add your API keys
+
+**Run the agent**
+uv run python src/main.py
+
+**Docker Deployment**
+
+# Build and run
 docker build -t acme-dental-agent .
-
-# Run with environment file
 docker run --env-file .env -it acme-dental-agent
-```
 
-## Troubleshooting
+# Or use docker-compose
+docker-compose up
 
-**Tool calling issues**: Use OpenAI or Anthropic for reliable tool calling. Groq's free tier has limitations.
+**Testing**
+# Run tests
+make test
 
-**API errors**: Check your API keys and ensure Calendly token has proper permissions.
+# Code quality
+make format  # Format code
+make lint    # Lint code
+make check   # Format + lint
 
-**Dependencies**: Run `uv sync` to ensure all packages are installed.
+
+**Project Structure**
+
+acme-dental-main/
+├── src/
+│   ├── agent/          # LangGraph implementation
+│   ├── services/       # API integrations
+│   ├── utils/          # Utilities
+│   └── main.py         # Entry point
+├── tests/              # Unit tests
+├── docs/               # Documentation
+├── Dockerfile          # Container config
+└── README.md           # This file
+
+**Example Conversation**
+
+You: Hello, I'd like to book an appointment
+Agent: I'd be happy to help you book a dental check-up! Let me show you the available time slots.
+
+You: What are your prices?
+Agent: A standard dental check-up costs €60. We offer discounts for students and seniors (65+) at €50.
+
+You: Show me available slots
+Agent: Here are the available appointment slots:
+        1. Monday, January 15, 2024 at 09:00 AM
+        2. Monday, January 15, 2024 at 10:30 AM
+        ...
+
+**Acknowledgments**
+
+Built with LangGraph
+
+Powered by LangChain
+
+Integrated with Calendly API
+
+📞 Support
+📧 Email: mail: vivekanand.kulkarni23@gmail.com
